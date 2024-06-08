@@ -1,6 +1,4 @@
 
-
-
 exports.seed = async function (knex) {
   // restet extensions
   const extensionModel = 'directus_extensions'

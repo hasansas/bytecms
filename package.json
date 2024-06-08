@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "directus start",
-    "dev": "nodemon --exec npx directus start"
+    "dev": "nodemon --exec npx directus start",
+    "pm2:start": "pm2 start \"npm run start\" --name bytecms-backend",
+    "pm2:restart": "pm2 restart bytecms-backend --update-env",
+    "pm2:stop": "pm2 delete bytecms-backend"
   },
   "keywords": [],
   "author": "",
