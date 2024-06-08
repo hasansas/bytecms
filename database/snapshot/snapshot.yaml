@@ -1169,12 +1169,12 @@ fields:
             color: var(--theme--warning)
       readonly: false
       required: false
-      sort: 2
+      sort: 7
       special: null
       translations: null
       validation: null
       validation_message: null
-      width: full
+      width: half
     schema:
       name: status
       table: posts
@@ -1207,7 +1207,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 3
+      sort: 2
       special: null
       translations: null
       validation: null
@@ -1246,7 +1246,7 @@ fields:
         template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
       readonly: true
       required: false
-      sort: 4
+      sort: 3
       special:
         - user-created
       translations: null
@@ -1286,7 +1286,7 @@ fields:
       options: null
       readonly: true
       required: false
-      sort: 5
+      sort: 4
       special:
         - date-created
       translations: null
@@ -1326,7 +1326,7 @@ fields:
         template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
       readonly: true
       required: false
-      sort: 6
+      sort: 5
       special:
         - user-updated
       translations: null
@@ -1366,7 +1366,7 @@ fields:
       options: null
       readonly: true
       required: false
-      sort: 7
+      sort: 6
       special:
         - date-updated
       translations: null
@@ -1405,7 +1405,7 @@ fields:
       options: null
       readonly: false
       required: true
-      sort: 8
+      sort: 11
       special: null
       translations: null
       validation: null
@@ -1444,7 +1444,7 @@ fields:
         property: title
       readonly: false
       required: false
-      sort: 9
+      sort: 17
       special: null
       translations: null
       validation: null
@@ -1467,44 +1467,6 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: posts
-    field: subtitle
-    type: string
-    meta:
-      collection: posts
-      conditions: null
-      display: null
-      display_options: null
-      field: subtitle
-      group: null
-      hidden: false
-      interface: input
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 10
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: subtitle
-      table: posts
-      data_type: varchar
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: posts
     field: description
     type: text
     meta:
@@ -1520,7 +1482,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 11
+      sort: 13
       special: null
       translations: null
       validation: null
@@ -1558,7 +1520,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 12
+      sort: 14
       special: null
       translations: null
       validation: null
@@ -1596,7 +1558,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 13
+      sort: 15
       special:
         - file
       translations: null
@@ -1635,7 +1597,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 14
+      sort: 16
       special:
         - cast-json
       translations: null
@@ -1664,8 +1626,9 @@ fields:
     meta:
       collection: posts
       conditions: null
-      display: null
-      display_options: null
+      display: related-values
+      display_options:
+        template: '{{image.$thumbnail}}{{name}}'
       field: author
       group: null
       hidden: false
@@ -1675,13 +1638,13 @@ fields:
         template: '{{name}}'
       readonly: false
       required: true
-      sort: 15
+      sort: 9
       special:
         - m2o
       translations: null
       validation: null
       validation_message: null
-      width: full
+      width: half
     schema:
       name: author
       table: posts
@@ -1704,8 +1667,9 @@ fields:
     meta:
       collection: posts
       conditions: null
-      display: null
-      display_options: null
+      display: related-values
+      display_options:
+        template: '{{name}}'
       field: category
       group: null
       hidden: false
@@ -1719,13 +1683,13 @@ fields:
         template: '{{name}}'
       readonly: false
       required: false
-      sort: 16
+      sort: 10
       special:
         - m2o
       translations: null
       validation: null
       validation_message: null
-      width: full
+      width: half
     schema:
       name: category
       table: posts
@@ -1742,6 +1706,82 @@ fields:
       has_auto_increment: false
       foreign_key_table: categories
       foreign_key_column: id
+  - collection: posts
+    field: subtitle
+    type: string
+    meta:
+      collection: posts
+      conditions: null
+      display: null
+      display_options: null
+      field: subtitle
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 12
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: subtitle
+      table: posts
+      data_type: varchar
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: posts
+    field: publish_date
+    type: dateTime
+    meta:
+      collection: posts
+      conditions: null
+      display: null
+      display_options: null
+      field: publish_date
+      group: null
+      hidden: false
+      interface: datetime
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 8
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: publish_date
+      table: posts
+      data_type: datetime
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
 relations:
   - collection: authors
     field: user_created

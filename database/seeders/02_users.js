@@ -1,6 +1,4 @@
 
-
-
 exports.seed = async function (knex) {
 
   // create admin role
